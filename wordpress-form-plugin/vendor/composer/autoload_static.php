@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit873a8ecf16ba3131b47a395c99de1baa
+class ComposerStaticInit46e00a917cb14db3f4d746cdb9fb18f7
 {
     public static $files = array (
         'b33e3d135e5d9e47d845c576147bda89' => __DIR__ . '/..' . '/php-di/php-di/src/functions.php',
@@ -18,6 +18,10 @@ class ComposerStaticInit873a8ecf16ba3131b47a395c99de1baa
         'L' => 
         array (
             'Laravel\\SerializableClosure\\' => 28,
+        ),
+        'K' => 
+        array (
+            'Kp\\' => 3,
         ),
         'I' => 
         array (
@@ -38,6 +42,10 @@ class ComposerStaticInit873a8ecf16ba3131b47a395c99de1baa
         array (
             0 => __DIR__ . '/..' . '/laravel/serializable-closure/src',
         ),
+        'Kp\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Invoker\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-di/invoker/src',
@@ -55,9 +63,9 @@ class ComposerStaticInit873a8ecf16ba3131b47a395c99de1baa
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit873a8ecf16ba3131b47a395c99de1baa::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit873a8ecf16ba3131b47a395c99de1baa::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit873a8ecf16ba3131b47a395c99de1baa::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit46e00a917cb14db3f4d746cdb9fb18f7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit46e00a917cb14db3f4d746cdb9fb18f7::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit46e00a917cb14db3f4d746cdb9fb18f7::$classMap;
 
         }, null, ClassLoader::class);
     }
