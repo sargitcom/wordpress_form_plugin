@@ -1,6 +1,6 @@
 <?php
 
-namespace KP\Install\Domain;
+namespace Kp\Install\Domain;
 
 interface TablesRepository
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace KP\Install\Application;
+namespace Kp\Install\Application;
 
-use KP\Install\Domain\TablesRepository;
+use Kp\Install\Domain\TablesRepository;
 
 class CreateDatabaseTables
 {

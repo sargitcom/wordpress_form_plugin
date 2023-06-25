@@ -2,7 +2,7 @@
 
 namespace Kp\Install\Infrastructure\Wordpress;
 
-use KP\Install\Domain\TablesRepository;
+use Kp\Install\Domain\TablesRepository;
 
 class WordpressTablesRepository implements TablesRepository
 {
