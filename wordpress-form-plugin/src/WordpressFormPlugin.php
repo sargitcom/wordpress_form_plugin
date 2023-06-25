@@ -1,9 +1,9 @@
 <?php
 
-namespace KP;
+namespace Kp;
 
-use KP\Install\Application\CreateDatabaseTables;
-use KP\Shortcode\Application\RegisterShortCodes;
+use Kp\Install\Application\CreateDatabaseTables;
+use Kp\Shortcode\Application\RegisterShortCodes;
 
 class WordpressFormPlugin
 {
