@@ -30,17 +30,4 @@ SQL;
 
         \dbDelta($sql);
     }
-
-    public function removeFormEntriesTable(): void
-    {
-        global $wpdb;
-
-        $tableName = $wpdb->prefix . self::FORM_ENTRIES_TABLE_NAME;
-
-        $sql = <<<SQL
-DROP TABLE $tableName;
-SQL;
-
-        \dbDelta($sql);
-    }
 }
