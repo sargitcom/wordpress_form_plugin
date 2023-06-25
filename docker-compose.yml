@@ -8,6 +8,7 @@ services:
     ports:
       - 8080:80
     environment:
+      WORDPRESS_DEBUG: 1
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wp
       WORDPRESS_DB_PASSWORD: wp
