@@ -43,7 +43,7 @@ try {
     $container = $builder->build();
 
     $wpFormPlugin = $container->get(KP\WordpressFormPlugin::class);
-    $wpFormPlugin->run();
+    $wpFormPlugin->run(__FILE__);
 } catch (\DI\DependencyException | \DI\NotFoundException | Exception $e) {
     // ... error here, typically do something to log errors and return info to the user
 }
