@@ -1,6 +1,6 @@
 <?php
 
-namespace KP\Shortcode\Application;
+namespace Kp\Shortcode\Application;
 
 class RegisterShortCodes
 {

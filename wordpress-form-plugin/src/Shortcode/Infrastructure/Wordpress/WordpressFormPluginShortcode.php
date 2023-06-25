@@ -1,8 +1,8 @@
 <?php
 
-namespace KP\Shortcode\Infrastructure;
+namespace Kp\Shortcode\Infrastructure;
 
-use KP\Shortcode\Domain\FormPluginShortcode;
+use Kp\Shortcode\Domain\FormPluginShortcode;
 
 class WordpressFormPluginShortcode implements FormPluginShortcode
 {

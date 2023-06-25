@@ -1,6 +1,6 @@
 <?php
 
-namespace KP\Shortcode\Domain;
+namespace Kp\Shortcode\Domain;
 
 interface FormPluginShortcode
 {
