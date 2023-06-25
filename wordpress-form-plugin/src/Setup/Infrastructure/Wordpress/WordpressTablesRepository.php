@@ -1,8 +1,8 @@
 <?php
 
-namespace Kp\Install\Infrastructure\Wordpress;
+namespace Kp\Setup\Infrastructure\Wordpress;
 
-use Kp\Install\Domain\TablesRepository;
+use Kp\Setup\Domain\TablesRepository;
 
 class WordpressTablesRepository implements TablesRepository
 {

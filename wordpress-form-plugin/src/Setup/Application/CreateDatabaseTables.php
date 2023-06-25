@@ -1,8 +1,8 @@
 <?php
 
-namespace Kp\Install\Application;
+namespace Kp\Setup\Application;
 
-use Kp\Install\Domain\TablesRepository;
+use Kp\Setup\Domain\TablesRepository;
 
 class CreateDatabaseTables
 {
@@ -13,9 +13,9 @@ class CreateDatabaseTables
         $this->tablesRepository = $tablesRepository;
     }
 
-    public function create()
+    public function create(string $mainFilePath)
     {
-        \register_activation_hook($this, 'createTables');
+        \register_activation_hook($mainFilePath, [$this, 'createTables']);
     }
 
     public function createTables()
