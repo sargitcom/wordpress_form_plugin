@@ -3,6 +3,8 @@
         "php-di/php-di": "^7.0"
     },
     "autoload": {
-        "psr-4": {"KP\\": "src/"}
+        "psr-4": {
+            "Kp\\": "src/"
+        }
     }
 }
