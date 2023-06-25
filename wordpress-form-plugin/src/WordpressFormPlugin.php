@@ -2,15 +2,20 @@
 
 namespace KP;
 
+use KP\Shortcode\Application\RegisterShortCodes;
+
 class WordpressFormPlugin
 {
-    public function __construct()
-    {
+    private RegisterShortCodes $registerShortCodes;
 
+    public function __construct(
+        RegisterShortCodes $registerShortCodes
+    ) {
+        $this->registerShortCodes = $registerShortCodes;
     }
 
     public function run()
     {
-
+        $this->registerShortCodes->register();
     }
 }
