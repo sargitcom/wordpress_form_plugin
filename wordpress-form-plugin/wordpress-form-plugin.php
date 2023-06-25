@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Wordpress form plugin
  * Description:       Plugin that let`s you insert form using shortcode or guttenberg block
- * Requires at least: 7.4
+ * Requires at least: 5.1
  * Requires PHP:      7.4
  * Version:           1.0.0
  * Author:            Kamil Konrad Pietrzkiewicz
@@ -20,6 +20,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 /**
  * load database upgrade tool
  */
+
 require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
 /**
@@ -28,10 +29,21 @@ require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
 try {
     $builder = new DI\ContainerBuilder();
+
+    $builder->addDefinitions([
+        \Kp\Install\Domain\TablesRepository::class => \DI\create(
+            \Kp\Install\Infrastructure\Wordpress\WordpressTablesRepository::class
+        ),
+
+        \Kp\Shortcode\Domain\FormPluginShortcode::class => \DI\create(
+            \Kp\Shortcode\Infrastructure\WordpressFormPluginShortcode::class
+        ),
+    ]);
+
     $container = $builder->build();
 
-    $wpFormPlugin = $container->get('WordpressFormPlugin');
+    $wpFormPlugin = $container->get(KP\WordpressFormPlugin::class);
     $wpFormPlugin->run();
 } catch (\DI\DependencyException | \DI\NotFoundException | Exception $e) {
-    echo 'Error during init of a Wordpress Form Plugin';
+    // ... error here, typically do something to log errors and return info to the user
 }
