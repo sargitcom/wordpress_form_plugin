@@ -12,7 +12,19 @@
  * @package           wordpress-form-plugin
  */
 
+/**
+ * load autoloader
+ */
 require_once(__DIR__ . '/vendor/autoload.php');
+
+/**
+ * load database upgrade tool
+ */
+require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+
+/**
+ * init plugin
+ */
 
 try {
     $builder = new DI\ContainerBuilder();
@@ -20,10 +32,6 @@ try {
 
     $wpFormPlugin = $container->get('WordpressFormPlugin');
     $wpFormPlugin->run();
-} catch (\DI\DependencyException $e) {
-    // handle errors here...
-} catch (\DI\NotFoundException $e) {
-    // handle errors here...
-} catch (Exception $e) {
-    // handle errors here...
+} catch (\DI\DependencyException | \DI\NotFoundException | Exception $e) {
+    echo 'Error during init of a Wordpress Form Plugin';
 }
