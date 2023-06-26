@@ -3,23 +3,21 @@
 namespace Kp\Setup\Application;
 
 use Kp\Setup\Domain\TablesRepository;
+use Kp\Setup\Infrastructure\Wordpress\WordpressTablesRepository;
 
 class DeleteDatabaseTables
 {
-    private TablesRepository $tablesRepository;
-
-    public function __construct(TablesRepository $tablesRepository)
-    {
-        $this->tablesRepository = $tablesRepository;
-    }
-
     public function remove(string $mainFilePath)
     {
-        \register_uninstall_hook($mainFilePath, [$this, 'deleteTables']);
+        \register_uninstall_hook(
+            $mainFilePath,
+            [DeleteDatabaseTables::class, 'deleteTables']
+        );
     }
 
-    public function deleteTables()
+    public static function deleteTables()
     {
-        $this->tablesRepository->deleteFormEntriesTable();
+        $repository = new WordpressTablesRepository();
+        $repository->deleteFormEntriesTable();
     }
 }
