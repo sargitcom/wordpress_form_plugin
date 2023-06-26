@@ -32,7 +32,7 @@ define('FORM_ENTRIES_TABLE_NAME', "wordpress_form_plugin_entries");
 /**
  * setup
  */
-
+/*
 \register_activation_hook(__FILE__, 'createFormEntriesTable');
 
 function createFormEntriesTable() : void
@@ -57,6 +57,7 @@ SQL;
 
     \dbDelta($sql);
 }
+*/
 
 /**
  * init plugin
@@ -70,8 +71,8 @@ try {
             \Kp\Setup\Infrastructure\Wordpress\WordpressTablesRepository::class
         ),
 
-        \Kp\Shortcode\Domain\FormPluginShortcode::class => \DI\create(
-            \Kp\Shortcode\Infrastructure\WordpressFormPluginShortcode::class
+        Kp\Shortcode\Domain\FormPluginShortcode::class => \DI\create(
+            \Kp\Shortcode\Infrastructure\Wordpress\WordpressFormPluginShortcode::class
         ),
     ]);
 
@@ -80,5 +81,6 @@ try {
     $wpFormPlugin = $container->get(Kp\WordpressFormPlugin::class);
     $wpFormPlugin->run(__FILE__);
 } catch (\DI\DependencyException | \DI\NotFoundException | Exception $e) {
+    var_dump($e->getMessage());
     // ... error here, typically do something to log errors and return info to the user
 }

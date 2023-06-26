@@ -1,6 +1,6 @@
 <?php
 
-namespace Kp\Shortcode\Infrastructure;
+namespace Kp\Shortcode\Infrastructure\Wordpress;
 
 use Kp\Shortcode\Domain\FormPluginShortcode;
 
@@ -43,6 +43,6 @@ class WordpressFormPluginShortcode implements FormPluginShortcode
         </div>
     </form>
 </div>
-SHORTCODE;;
+SHORTCODE;
     }
 }
