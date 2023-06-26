@@ -71,9 +71,13 @@ try {
             \Kp\Setup\Infrastructure\Wordpress\WordpressTablesRepository::class
         ),
 
-        Kp\Shortcode\Domain\FormPluginShortcode::class => \DI\create(
+        \Kp\Shortcode\Domain\FormPluginShortcode::class => \DI\create(
             \Kp\Shortcode\Infrastructure\Wordpress\WordpressFormPluginShortcode::class
         ),
+
+        \Kp\Assets\Domain\AssetsRepository::class => \DI\create(
+            \Kp\Assets\Infrastructure\Wordpress\WordpressAssetsRepository::class
+        )
     ]);
 
     $container = $builder->build();
