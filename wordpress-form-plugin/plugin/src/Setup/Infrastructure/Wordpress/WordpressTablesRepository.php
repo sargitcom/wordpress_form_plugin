@@ -30,4 +30,19 @@ SQL;
 
         \dbDelta($sql);
     }
+
+    public function deleteFormEntriesTable(): void
+    {
+        if (!defined('WP_UNINSTALL_PLUGIN')) exit();
+
+        global $wpdb;
+
+        $tableName = $wpdb->prefix . self::FORM_ENTRIES_TABLE_NAME;
+
+        $sql = <<<SQL
+DROP TABLE IF EXISTS $tableName;  
+SQL;
+
+        $wpdb->query($sql);
+    }
 }
