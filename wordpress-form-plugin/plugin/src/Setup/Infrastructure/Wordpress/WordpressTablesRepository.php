@@ -33,8 +33,6 @@ SQL;
 
     public function deleteFormEntriesTable(): void
     {
-        if (!defined('WP_UNINSTALL_PLUGIN')) exit();
-
         global $wpdb;
 
         $tableName = $wpdb->prefix . self::FORM_ENTRIES_TABLE_NAME;
