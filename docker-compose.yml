@@ -14,7 +14,7 @@ services:
       WORDPRESS_DB_PASSWORD: wp
       WORDPRESS_DB_NAME: wp
     volumes:
-      - ./wordpress-form-plugin:/var/www/html/wp-content/plugins/wordpress-form-plugin
+      - ./wordpress-form-plugin/plugin:/var/www/html/wp-content/plugins/wordpress-form-plugin
 
   db:
     image: mysql:5.7
