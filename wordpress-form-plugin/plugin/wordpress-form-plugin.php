@@ -66,6 +66,10 @@ try {
     $builder = new DI\ContainerBuilder();
 
     $builder->addDefinitions([
+        \Kp\Setup\Domain\TablesRepository::class => \DI\create(
+            \Kp\Setup\Infrastructure\Wordpress\WordpressTablesRepository::class
+        ),
+
         \Kp\Shortcode\Domain\FormPluginShortcode::class => \DI\create(
             \Kp\Shortcode\Infrastructure\WordpressFormPluginShortcode::class
         ),
@@ -73,8 +77,9 @@ try {
 
     $container = $builder->build();
 
-    $wpFormPlugin = $container->get(KP\WordpressFormPlugin::class);
+    $wpFormPlugin = $container->get(Kp\WordpressFormPlugin::class);
     $wpFormPlugin->run(__FILE__);
 } catch (\DI\DependencyException | \DI\NotFoundException | Exception $e) {
+    var_dump($e->getMessage());
     // ... error here, typically do something to log errors and return info to the user
 }
