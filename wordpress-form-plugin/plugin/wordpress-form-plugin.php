@@ -24,6 +24,41 @@ require_once(__DIR__ . '/vendor/autoload.php');
 require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
 /**
+ * consts
+ */
+
+define('FORM_ENTRIES_TABLE_NAME', "wordpress_form_plugin_entries");
+
+/**
+ * setup
+ */
+
+\register_activation_hook(__FILE__, 'createFormEntriesTable');
+
+function createFormEntriesTable() : void
+{
+    global $wpdb;
+
+    $charsetCollate = $wpdb->get_charset_collate();
+
+    $tableName = $wpdb->prefix . FORM_ENTRIES_TABLE_NAME;
+
+    $sql = <<<SQL
+CREATE TABLE IF NOT EXISTS $tableName (
+  id mediumint(9) NOT NULL AUTO_INCREMENT,
+  first_name varchar(512) NOT NULL,
+  last_name varchar(512) NOT NULL,
+  email varchar(320) NOT NULL,
+  subject varchar(512) NOT NULL,
+  message text NOT NULL,
+  PRIMARY KEY  (id)
+) $charsetCollate;
+SQL;
+
+    \dbDelta($sql);
+}
+
+/**
  * init plugin
  */
 
@@ -31,10 +66,6 @@ try {
     $builder = new DI\ContainerBuilder();
 
     $builder->addDefinitions([
-        \Kp\Install\Domain\TablesRepository::class => \DI\create(
-            \Kp\Install\Infrastructure\Wordpress\WordpressTablesRepository::class
-        ),
-
         \Kp\Shortcode\Domain\FormPluginShortcode::class => \DI\create(
             \Kp\Shortcode\Infrastructure\WordpressFormPluginShortcode::class
         ),
